@@ -2,13 +2,12 @@ import pygame
 ora = [60, 60, 60]
 pygame.init()
 screen = pygame.display.set_mode()
-x, y = screen.get_size()
+hx, hy = screen.get_size()
 running = True
 text = '$'
 pygame.mouse.set_visible(False)
 font = pygame.font.Font(None, 50)
 def seecl(n1):
-    global b
     while pygame.mouse.get_pressed()[0]:
         pass
     n2 = pygame.mouse.get_pos()

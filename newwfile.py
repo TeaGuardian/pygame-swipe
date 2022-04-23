@@ -7,6 +7,8 @@ running = True
 text = '$'
 pygame.mouse.set_visible(False)
 font = pygame.font.Font(None, 50)
+
+
 def seecl(n1):
     while pygame.mouse.get_pressed()[0]:
         pass
@@ -23,6 +25,8 @@ def seecl(n1):
         return '>'
     else:
         return f'{x} {y}'
+
+
 while running:
     screen.fill(ora)
     for event in pygame.event.get():

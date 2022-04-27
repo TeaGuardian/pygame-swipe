@@ -110,6 +110,7 @@ while running:
         """если стоим на жёлтом, то меняем на красный"""
         mapk[a[0]][a[1]] = s2
     elif mapk[lasta[0]][lasta[1]] == s3:
+        """обработчик мигания"""
         if not time_2:
             schet = 0
             time_2 = datetime.now()
@@ -143,6 +144,7 @@ while running:
     textpose = (50, 810)
     screen.blit(texte, textpose)
     pygame.display.update()
+
 r = 1
 tim = datetime.now()
 score = 0
@@ -161,6 +163,7 @@ for i in range(3):
             maxb -= 1
     else:
         maxb -= 1
+
 while r:
     screen.fill(ora)
     for event in pygame.event.get():

@@ -2,6 +2,7 @@ import socket
 import pygame
 from random import randint
 from datetime import datetime, timedelta
+"""переменные ip"""
 SERVER, CLIENT = '', '192.168.0.1'
 ora = [60, 60, 60]
 grey = [200, 200, 200]
@@ -60,7 +61,7 @@ def drawc(x, y, h, color):
 
 
 def button(x, y, hx, hy, text, color):
-    """рисуем клеточку"""
+    """рисуем кнопку"""
     r = hy // 5
     pygame.draw.rect(screen, color, ((x - r, y), (hx + r * 2, hy)))
     pygame.draw.rect(screen, color, ((x, y - r), (hx, hy + r * 2)))
@@ -481,7 +482,6 @@ def client():
         try:
             lask2 = list(map(int, clientSocket.recv(512).decode().split('#')))
             mapk[lask2[0]][lask2[1]] = [lask2[2], lask2[3], lask2[4]]
-            print(lask2)
         except ConnectionResetError as e:
             print("Client connection closed")
             return 0

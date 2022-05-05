@@ -33,8 +33,12 @@ def get_ipl():
 
 
 def seecl(n1, event):
+    """из-за попытки сделать версию общей для пк и телефона могут возникать ошибки event has not type key,
+    в этом случае достаточно убрать ненужный тип управления из этой функции, или изменить параметр CR на True,
+    тогда версия перейдёт в телефонную"""
     while pygame.mouse.get_pressed()[0]:
         pass
+    CR = False
     n2 = pygame.mouse.get_pos()
     x, y = n1[0] - n2[0], n1[1] - n2[1]
     d = 1.4
@@ -46,7 +50,7 @@ def seecl(n1, event):
         return '<'
     elif (x < 0 and abs(x) > abs(d * y)):
         return '>'
-    elif n1 == n2:
+    elif n1 == n2 and CR:
         return f'{x} {y}'
     elif event.key == pygame.K_DOWN:
         return 'v'
@@ -268,7 +272,7 @@ def server():
     serverSocket.bind((SERVER, PORT))
     serverSocket.listen(1)
     screen.fill(ora)
-    stext = font.render("WAITING", True, [255, 255, 255])
+    stext = font.render("WAITING FOR CLIENT", True, [255, 255, 255])
     screen.blit(stext, (200, 100))
     pygame.display.update()
     connectionSocket, addr = serverSocket.accept()
@@ -457,7 +461,7 @@ def client():
     running = 1
     clientSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     screen.fill(ora)
-    stext = font.render("WAITING", True, [255, 255, 255])
+    stext = font.render("WAITING FOR SERVER", True, [255, 255, 255])
     screen.blit(stext, (200, 100))
     pygame.display.update()
 

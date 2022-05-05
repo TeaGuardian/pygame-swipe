@@ -614,10 +614,14 @@ def client():
 
 
 print(get_ipl())
-res = start_screen()
-if res['SOLO GAME']:
-    solo()
-if res['CREATE MASTER']:
-    server()
-if res["CREATE CLIENT"]:
-    client()
+while True:
+    res = start_screen()
+    if res['SOLO GAME']:
+        solo()
+        break
+    if res['CREATE MASTER']:
+        server()
+        break
+    if res["CREATE CLIENT"]:
+        client()
+        break

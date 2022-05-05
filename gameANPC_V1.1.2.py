@@ -1,9 +1,10 @@
+"""исправленная версия"""
 import socket
 import pygame
 from random import randint
 from datetime import datetime, timedelta
 """переменные ip"""
-SERVER, CLIENT = '', '192.168.0.1'
+SERVER, CLIENT = '', '192.168.43.1'
 ora = [60, 60, 60]
 grey = [200, 200, 200]
 p1 = [100, 180, 20]
@@ -37,13 +38,23 @@ def seecl(n1, event):
     n2 = pygame.mouse.get_pos()
     x, y = n1[0] - n2[0], n1[1] - n2[1]
     d = 1.4
-    if (y < 0 and abs(x) < abs(d * y)) or event.key == pygame.K_DOWN:
+    if (y < 0 and abs(x) < abs(d * y)):
         return 'v'
-    elif (y > 0 and abs(x) < abs(d * y)) or event.key == pygame.K_UP:
+    elif (y > 0 and abs(x) < abs(d * y)):
         return 'u'
-    elif (x > 0 and abs(x) > abs(d * y)) or event.key == pygame.K_LEFT:
+    elif (x > 0 and abs(x) > abs(d * y)):
         return '<'
-    elif (x < 0 and abs(x) > abs(d * y)) or event.key == pygame.K_RIGHT:
+    elif (x < 0 and abs(x) > abs(d * y)):
+        return '>'
+    elif n1 == n2:
+        return f'{x} {y}'
+    elif event.key == pygame.K_DOWN:
+        return 'v'
+    elif event.key == pygame.K_UP:
+        return 'u'
+    elif event.key == pygame.K_LEFT:
+        return '<'
+    elif event.key == pygame.K_RIGHT:
         return '>'
     else:
         return f'{x} {y}'

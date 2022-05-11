@@ -1,6 +1,6 @@
 # pygame-swipe
 
-<b>ВСЕ ПРИЛОЖЕННЫЕ ФАЙЛЫ ПОДЛЕЖАТ ЛИЦЕНЗИИ MIT<b/>
+<b>ВСЕ ПРИЛОЖЕННЫЕ ФАЙЛЫ ПОДЛЕЖАТ ЛИЦЕНЗИИ<b/>
 >> about newwfile.py 21.04.2022
 swipe for paygame
 
